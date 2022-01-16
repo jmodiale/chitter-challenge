@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+ <html>
+  <head>
+   <title>Posts</title>
+  </head>
+ <body>
+  <div class="container">
+  <h1> All Posts </h1>
+  <img src="./male_boy_person_people_avatar_icon_159358.png" alt="Avatar">
+  <p>
+  <% @posts.each do |post| %>
+    <p> <%=post%> Sample message</p>
+    <br></br>
+  <% end %>
+  </p>
+  </div>
+ <body>
+</html>
