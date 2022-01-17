@@ -16,9 +16,9 @@ end
 
 feature "show all messages" do
     scenario "view the list of messages" do
-      Chitter.create(message: "first")
-      Chitter.create(message: "second")
-      Chitter.create(message: "last")
+      Chit.create(message: "first")
+      Chit.create(message: "second")
+      Chit.create(message: "last")
 
       visit '/posts'
   

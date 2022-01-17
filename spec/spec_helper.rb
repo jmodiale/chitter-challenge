@@ -1,3 +1,4 @@
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
 require 'simplecov'
 require 'simplecov-console'
 ENV['RACK_ENV'] = 'test'
@@ -7,13 +8,9 @@ require 'capybara/rspec'
 require 'rspec'
 require_relative './setup_test_database'
 
-require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
-# Tell Capybara to talk to BookmarkManager
+# Tell Capybara to talk to Chitter
 Capybara.app = Chitter
-
-
-### the rest of the file ###
 
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([

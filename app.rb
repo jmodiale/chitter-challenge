@@ -1,6 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
-require './lib/chitter'
+require './lib/chit'
 
 class Chitter < Sinatra::Base
   configure :development do
@@ -13,7 +13,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/posts' do
-    @posts = Chitter.all
+    @posts = Chit.all
     erb(:index)
   end
 
@@ -22,7 +22,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/posts' do
-    Chitter.create(message: params[:message])
+    Chit.create(message: params[:message])
     redirect '/posts'
   end
 

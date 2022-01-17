@@ -1,6 +1,6 @@
 require 'pg'
 
-class Chitter
+class Chit
     attr_reader :id, :message, :time
 
     def initialize(id:, message:, time:)
@@ -17,7 +17,7 @@ class Chitter
         end
         result = connectdb.exec('SELECT * FROM posts;')
         result.map do |post| 
-            Chitter.new(id: post['id'], message: post['message'], time: post['time'])
+            Chit.new(id: post['id'], message: post['message'], time: post['time'])
         end
     end
 
@@ -29,7 +29,7 @@ class Chitter
         end
     
         result = connectdb.exec_params("INSERT INTO posts (message) VALUES ($1) RETURNING id, message, time", [message])
-        Chitter.new(id: result[0]['id'], message: result[0]['message'], time: result[0]['time'])
+        Chit.new(id: result[0]['id'], message: result[0]['message'], time: result[0]['time'])
     end
 end
 
