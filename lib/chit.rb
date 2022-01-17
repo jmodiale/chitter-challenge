@@ -15,10 +15,8 @@ class Chit
           else
             connectdb = PG.connect(dbname: 'chitter')
         end
-        result = connectdb.exec('SELECT * FROM posts;')
-        result.map do |post| 
-            Chit.new(id: post['id'], message: post['message'], time: post['time'])
-        end
+        result = connectdb.exec('SELECT * FROM posts ORDER BY time DESC;')
+        result.map { |post| Chit.new(id: post['id'], message: post['message'], time: post['time'])}
     end
 
     def self.create(message:)
